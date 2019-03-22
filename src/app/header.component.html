@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;" >
+  <a class="navbar-brand" routerLink="">Routing Application</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+        <!-- [routerLinkActiveOptions]="{ exact : true}" -->
+      <li class="nav-item" [routerLinkActiveOptions]="{ exact : true}" routerLinkActive="active" >
+        <a class="nav-link" routerLink="/home">Home </a>
+      </li>
+      <li class="nav-item" [routerLinkActiveOptions]="{ exact : true}" routerLinkActive="active" >
+        <a class="nav-link" routerLink="/products">Products</a>
+      </li>
+      <li class="nav-item" [routerLinkActiveOptions]="{ exact : true}" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['/products',0]">Add Product</a>
+      </li>
+
+    </ul>
+
+      <button routerLink="/login" *ngIf="!isLoggedIn"
+      class="btn btn-outline-success my-2 my-sm-0">Login</button>
+      <button *ngIf="isLoggedIn" (click)="logOut()"
+      class="btn btn-outline-success my-2 my-sm-0">Logout</button>
+  </div>
+</nav>
